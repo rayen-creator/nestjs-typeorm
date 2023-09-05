@@ -6,8 +6,8 @@ import { DotenvModule } from './config/dotenv/dotenv.module';
 import { DatabaseModule } from './config/database/database.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { UserModule } from './modules/user/user.module';
-import { TaskModule } from './modules/task/task.module';
 import { CategoryModule } from './modules/category/category.module';
+import { TaskModule } from './modules/task/task.module';
 
 @Module({
   imports: [SharedModule,DotenvModule, DatabaseModule, AuthModule, UserModule, TaskModule, CategoryModule],
