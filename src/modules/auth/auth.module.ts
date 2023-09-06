@@ -8,9 +8,11 @@ import { JwtStrategy } from './strategy/jwt.strategy';
 import { LocalStrategy } from './strategy/local.strategy';
 import { JwtAuthGuard } from './guard/jwt-auth.guard';
 import { APP_GUARD } from '@nestjs/core';
+import { UserModule } from '../user/user.module';
 
 @Module({
   imports: [
+    UserModule,
     PassportModule,
     JwtModule.registerAsync({
       useFactory: async (configService: ConfigService) => ({
@@ -23,10 +25,12 @@ import { APP_GUARD } from '@nestjs/core';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy, JwtStrategy, {
-    provide: APP_GUARD,
-    useClass: JwtAuthGuard,
-  },],
+  providers: [AuthService, LocalStrategy, JwtStrategy,
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
+  ],
   exports: [AuthService]
 })
 export class AuthModule { }

@@ -2,7 +2,9 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { AuthService } from '../service/auth.service';
 import { ApiTags } from '@nestjs/swagger';
 import { LocalAuthGuard } from '../guard/local-auth.guard';
+import { Public } from 'src/decorator/public.decorator';
 
+@Public()
 @ApiTags("auth")
 @Controller('auth')
 export class AuthController {
@@ -11,7 +13,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post("/signin")
   async login(@Body() user:any) {
-    return this.authService.login(user);
+    return await this.authService.login(user);
   }
 
   
