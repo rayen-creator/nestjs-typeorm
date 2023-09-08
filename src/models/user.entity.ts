@@ -1,7 +1,8 @@
-import { Column, Entity, OneToMany } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, OneToMany } from "typeorm";
 import { BaseEntity } from "./base.entity";
 import { Task } from "./task.entity";
 import { Category } from "./category.entity";
+import { Post } from "./post.entity";
 
 
 @Entity({ name: 'user' })
@@ -17,4 +18,18 @@ export class User extends BaseEntity {
     tasks: Task[];
     @OneToMany(() => Category, (category) => category.user)
     category: Category;
+
+    @ManyToMany(() => Post, (post) => post.users)
+    @JoinTable({
+        name: 'user_post',
+        joinColumn: {
+            name: 'user_id',
+            referencedColumnName: 'id',
+        },
+        inverseJoinColumn: {
+            name: 'post_id',
+            referencedColumnName: 'id',
+        },
+    })
+    posts: Post[];
 }
