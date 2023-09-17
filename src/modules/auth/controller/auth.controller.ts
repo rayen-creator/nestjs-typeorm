@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from '@n
 import { AuthService } from '../service/auth.service';
 import { ApiTags } from '@nestjs/swagger';
 import { LocalAuthGuard } from '../guard/local-auth.guard';
-import { Public } from 'src/decorator/public.decorator';
+import { Public } from '../../../decorator/public.decorator';
 
 @Public()
 @ApiTags("auth")

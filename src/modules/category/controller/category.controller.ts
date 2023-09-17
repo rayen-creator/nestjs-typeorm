@@ -3,7 +3,7 @@ import { CategoryService } from '../service/category.service';
 import { CreateCategoryDto } from '../dto/create-category.dto';
 import { UpdateCategoryDto } from '../dto/update-category.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from 'src/decorator/public.decorator';
+import { Public } from '../../../decorator/public.decorator';
 
 @ApiTags("category")
 @Controller('category')

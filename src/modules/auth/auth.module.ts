@@ -9,6 +9,7 @@ import { LocalStrategy } from './strategy/local.strategy';
 import { JwtAuthGuard } from './guard/jwt-auth.guard';
 import { APP_GUARD } from '@nestjs/core';
 import { UserModule } from '../user/user.module';
+import { UserService } from '../user/service/user.service';
 
 @Module({
   imports: [

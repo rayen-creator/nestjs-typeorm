@@ -3,7 +3,7 @@ import { TaskService } from '../services/task.service';
 import { CreateTaskDto } from '../dto/create-task.dto';
 import { UpdateTaskDto } from '../dto/update-task.dto';
 import { ApiTags } from '@nestjs/swagger';
-import { Public } from 'src/decorator/public.decorator';
+import { Public } from '../../../decorator/public.decorator';
 
 @Public()
 @ApiTags('task')
